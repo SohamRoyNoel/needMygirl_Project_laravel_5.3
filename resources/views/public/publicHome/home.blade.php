@@ -48,11 +48,12 @@
                         <input class="form-control mr-sm-2" type="search" placeholder="Search here..." name="Search" required="">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
+                        <img class="img img-circle" src="{{ asset('user_faces/' . substr(session('photo'), 2, -2))}}" height="40" width="40">
                 </div>
             </nav>
         </header>
         <!-- //header -->
-        <h1 class="inner-title-agileits-w3layouts">Join Today, To Explore Your Life Partner</h1>
+        <h1 class="inner-title-agileits-w3layouts">You will find your love here</h1>
     </div>
     <!-- //banner -->
 
@@ -78,18 +79,20 @@
 
 
                         <h3 class="subheading-wthree mb-3"> <font color="#ff8c00"> Show Some Interest </font></h3>
-                        {!! Form::open(['method'=>'POST', 'files'=>true]) !!}
+
 
                             <div class="form-group">
-                                @if($fin->sex == 'Male')
-                                    {!! Form::submit('Let him know your interest', ['class'=>'btn btn-primary btn-lg active']) !!}
-                                @else
-                                    {!! Form::submit('Let her know your interest', ['class'=>'btn btn-primary btn-lg active']) !!}
-                                @endif
-                                {!! Form::submit('Watch Profile', ['class'=>'btn btn-secondary btn-lg active']) !!}
+
+                                    @if($fin->sex == 'Male')
+                                        {!! Form::submit('Let him know your interest', ['class'=>'btn btn-primary btn-lg active']) !!}
+                                    @else
+                                        {!! Form::submit('Let her know your interest', ['class'=>'btn btn-primary btn-lg active']) !!}
+                                    @endif
+
+                                   <a href="{{route('userHome.show', $fin->id)}}"> {!! Form::submit('Watch Profile', ['class'=>'btn btn-secondary btn-lg active']) !!}</a>
                             </div>
 
-                            {!! Form::close() !!}
+
 
                     </div>
                     <div class="">
@@ -106,8 +109,18 @@
     <nav aria-label="Page navigation example">
         <div class="pagination justify-content-center">
 
-                {{$find->render() }}
+                {{$find->render() }}<br>
+
         </div>
+    </nav>
+
+    <nav aria-label="Page navigation example">
+        <div class="pagination justify-content-center">
+
+           <font color="#ff8c00"> You're on page : {{$find->currentPage() }}</font><br>
+
+        </div>
+
     </nav>
 <br>
 

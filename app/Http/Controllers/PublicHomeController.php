@@ -9,13 +9,13 @@ class PublicHomeController extends Controller
 {
     public function index()
     {
-        $find = User::paginate(2);
+        $find = User::Paginate(2);
         return view('public.publicHome.home', compact('find'));
     }
 
     public function create()
     {
-        //
+
     }
 
     public function store(Request $request)
@@ -25,7 +25,8 @@ class PublicHomeController extends Controller
 
     public function show($id)
     {
-        //
+        $myuser = User::where('id','=', $id)->get();
+        return view('public.publicHome.profile', compact('myuser'));
     }
 
     public function edit($id)
@@ -42,4 +43,5 @@ class PublicHomeController extends Controller
     {
         //
     }
+
 }

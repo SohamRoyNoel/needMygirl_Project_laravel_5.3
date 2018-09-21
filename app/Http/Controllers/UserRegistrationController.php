@@ -20,7 +20,7 @@ class UserRegistrationController extends Controller
     {
         session()->forget('name');
         session()->forget('email');
-        return redirect()->back();
+        return redirect('/');
     }
 
 

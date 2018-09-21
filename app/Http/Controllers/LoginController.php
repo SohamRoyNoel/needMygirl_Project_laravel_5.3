@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Photo;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -31,9 +32,17 @@ class LoginController extends Controller
             foreach ($check as $c){
                 $name = $c['name'];
                 $email = $c['email'];
+                $photos = $c['photo_id'];
+
+                //return $photos;
+
+                $photo = Photo::where('id', $photos)->pluck('path');
+
+                // return $photo;
 
                 session(['name'=>$name]);
                 session(['email'=>$email]);
+                session(['photo'=>$photo]);
                 return redirect('/loggedin/userHome');
             }
         } else {
