@@ -100,7 +100,7 @@
 
             <div class="form-group">
                 {!! Form::label('category', 'What are you looking for:') !!}
-                {!! Form::select('category', array(''=>'Select Category') + $category,  null, ['class'=>'form-control']) !!}
+                {!! Form::select('category_id', array(''=>'Select Category') + $category,  null, ['class'=>'form-control']) !!}
             </div>
 
             <div class="form-group">

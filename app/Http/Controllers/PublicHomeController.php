@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class PublicHomeController extends Controller
 {
     public function index()
     {
-        return view('public.publicHome.home');
+        $find = User::all();
+        return view('public.publicHome.home', compact('find'));
     }
 
     public function create()

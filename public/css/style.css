@@ -852,7 +852,7 @@ h5.test-name span {
 /*-- stories --*/
 
 .story-img1 {
-	background: url(../images/s1.jpg)no-repeat 0px 0px;
+	/*background: url(../images/s1.jpg)no-repeat 0px 0px;*/
 	border-radius: 80px 0px;
 }
 

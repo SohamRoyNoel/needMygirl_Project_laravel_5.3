@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
@@ -23,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('religion');
             $table->string('occupation');
             $table->string('address');
-            $table->integer('category');
+            $table->integer('category_id');
             $table->string('phone')->unique();
             $table->integer('photo_id');
             $table->string('salary')->default('Do not wat to disclose');
@@ -33,11 +28,6 @@ class CreateUsersTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::drop('users');

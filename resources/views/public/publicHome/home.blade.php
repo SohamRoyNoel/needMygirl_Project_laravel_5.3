@@ -60,6 +60,48 @@
 
 @section('content')
 
+    @if($find)
+        @foreach($find as $fin)
+        <!-- Stories -->
+        <section class="stories-section py-5">
+            <div class="container py-xl-5 py-sm-3">
+                <h5 class="main-w3l-title mb-sm-3 mb-2"></h5>
+                <div class="d-lg-flex main-story">
+                    <div class="col-lg-7 story-info">
+                        <h4 class="story-names">{{$fin->name}}</h4>
+                        <span class="styory-date">Sex : {{$fin->sex}}</span>
+                        <span class="styory-date">Age, Religion : {{$fin->age}}, {{" "}}, {{$fin->religion}}</span>
+                        <span class="styory-date">Occupation : {{$fin->occupation}}</span>
+                        <span class="styory-date">Resident : {{$fin->address}}</span>
+                        <span class="styory-date">Interested in finding: {{$fin->category->name}}</span>
+                        <span class="styory-date">Earnings approx : {{$fin->salary}}</span>
+                        <span class="styory-date">Earnings approx : {{$fin->photo->path}}</span>
+
+                        <h3 class="subheading-wthree mb-3"> <font color="#ff8c00"> Show Some Interest </font></h3>
+                        {!! Form::open(['method'=>'POST', 'files'=>true]) !!}
+
+                            <div class="form-group">
+                                @if($fin->sex == 'Male')
+                                    {!! Form::submit('Let him know your interest', ['class'=>'btn btn-primary btn-lg active']) !!}
+                                @else
+                                    {!! Form::submit('Let her know your interest', ['class'=>'btn btn-primary btn-lg active']) !!}
+                                @endif
+                                {!! Form::submit('Watch Profile', ['class'=>'btn btn-secondary btn-lg active']) !!}
+                            </div>
+
+                            {!! Form::close() !!}
+
+                    </div>
+                    <div class="col-lg-5 story-img1">
+                        {{--<img src="{{ asset('images/s1.jpg')}}" class="" height="0" width="0">--}}
+                        <img src="public/user_faces/".{{$fin->photo->path}} class="" height="0" width="0">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- //Stories -->
+        @endforeach
+    @endif
 
 
 @stop
