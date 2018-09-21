@@ -9,7 +9,7 @@ class PublicHomeController extends Controller
 {
     public function index()
     {
-        $find = User::all();
+        $find = User::paginate(2);
         return view('public.publicHome.home', compact('find'));
     }
 

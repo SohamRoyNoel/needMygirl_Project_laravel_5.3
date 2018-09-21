@@ -852,8 +852,7 @@ h5.test-name span {
 /*-- stories --*/
 
 .story-img1 {
-	/*background: url(../images/s1.jpg)no-repeat 0px 0px;*/
-	border-radius: 80px 0px;
+
 }
 
 .story-img2 {
@@ -869,11 +868,10 @@ h5.test-name span {
 .story-img1,
 .story-img2,
 .story-img3 {
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	-ms-background-size: cover;
-	background-size: cover;
+	-webkit-background-size: inherit;
+	-moz-background-size: inherit;
+	-o-background-size: inherit;
+	background-size: inherit;
 	background-position: center;
 	min-height: 400px;
 }
@@ -1387,7 +1385,7 @@ ul.w3agile_footer_grid_list li span i {
 	.story-img1,
 	.story-img3 {
 		margin-top: 2em;
-		background-position: top;
+		background-position: center;
 	}
 	.story-img2 {
 		margin-top: 2em;

@@ -75,7 +75,7 @@
                         <span class="styory-date">Resident : {{$fin->address}}</span>
                         <span class="styory-date">Interested in finding: {{$fin->category->name}}</span>
                         <span class="styory-date">Earnings approx : {{$fin->salary}}</span>
-                        <span class="styory-date">Earnings approx : {{$fin->photo->path}}</span>
+
 
                         <h3 class="subheading-wthree mb-3"> <font color="#ff8c00"> Show Some Interest </font></h3>
                         {!! Form::open(['method'=>'POST', 'files'=>true]) !!}
@@ -92,16 +92,23 @@
                             {!! Form::close() !!}
 
                     </div>
-                    <div class="col-lg-5 story-img1">
-                        {{--<img src="{{ asset('images/s1.jpg')}}" class="" height="0" width="0">--}}
-                        <img src="public/user_faces/".{{$fin->photo->path}} class="" height="0" width="0">
+                    <div class="">
+                        <img src="{{ asset('user_faces/' . $fin->photo->path)}}" class="img img-circle no-gutters" height="470" width="420" alt="Cinque Terre">
                     </div>
                 </div>
             </div>
         </section>
+
         <!-- //Stories -->
         @endforeach
     @endif
 
+    <nav aria-label="Page navigation example">
+        <div class="pagination justify-content-center">
+
+                {{$find->render() }}
+        </div>
+    </nav>
+<br>
 
 @stop
