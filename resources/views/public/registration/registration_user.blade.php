@@ -39,6 +39,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" title="Login" href="{{route('login.index')}}"> <i class="fas fa-sign-in-alt"></i></a>
+                        </li>
                     </ul>
                     <form action="#" method="post" class="form-inline my-2 my-lg-0 search">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search here..." name="Search" required="">
@@ -63,12 +66,12 @@
 
             <div class="form-group">
                 {!! Form::label('name', 'Name:') !!}
-                {!! Form::text('name', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'mobile number']) !!}
+                {!! Form::text('name', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'Hi Mr or Miss X...!']) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('email', 'Email:') !!}
-                {!! Form::email('email', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'Your email']) !!}
+                {!! Form::email('email', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'Email is for verification purpose only, will not be shown publicly.']) !!}
             </div>
 
             <div class="form-group">
@@ -80,7 +83,7 @@
 
             <div class="form-group">
                 {!! Form::label('age', 'Age:') !!}
-                {!! Form::text('age', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'Aadhaar Number 12 Digit']) !!}
+                {!! Form::text('age', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'How old are you?']) !!}
             </div>
 
             <div class="form-group">
@@ -95,7 +98,7 @@
 
             <div class="form-group">
                 {!! Form::label('address', 'Address:') !!}
-                {!! Form::text('address', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'Pan Number 10 Digit']) !!}
+                {!! Form::text('address', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'Best practice is to write your city name']) !!}
             </div>
 
             <div class="form-group">
@@ -105,7 +108,7 @@
 
             <div class="form-group">
                 {!! Form::label('phone', 'Phone:') !!}
-                {!! Form::text('phone', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'Name appeared on Aadhaar Card']) !!}
+                {!! Form::text('phone', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'Phone Number is for verification purpose only, will not be shown publicly.']) !!}
             </div>
 
             <div class="form-group">
@@ -115,12 +118,17 @@
 
             <div class="form-group">
                 {!! Form::label('salary', 'Salary:') !!}
-                {!! Form::text('salary', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'Name appeared on Aadhaar Card']) !!}
+                {!! Form::text('salary', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'If You\'re not willing to tell, then just write NILL']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('about', 'About:') !!}
+                {!! Form::textarea('about', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'Whats up Mr or Miss or am I right? Tell me plssss.']) !!}
             </div>
 
             <div class="form-group">
                 {!! Form::label('password', 'Password:') !!}
-                {!! Form::password('password', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'Name appeared on Aadhaar Card']) !!}
+                {!! Form::password('password', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'Enter a Password']) !!}
             </div>
 
             <div class="form-group">
@@ -128,6 +136,8 @@
             </div>
 
             {!! Form::close() !!}
+
+            @include('pertial.validationErr')
 
             <div class="col-md-12 col-sm-12 col-xs-12 w3l-bb-grid1">
                 <h5><font style="color: #2b542c"> <i class="fas fa-exclamation-triangle"></i> * marked fields are needed....! </font></h5>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\RegistrationRequest;
 use App\Photo;
 use App\User;
 use Illuminate\Http\Request;
@@ -24,7 +25,7 @@ class UserRegistrationController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(RegistrationRequest $request)
     {
 //        return $request->all();
         // User::create($request->all());

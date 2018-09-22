@@ -39,6 +39,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" title="Registration" href="{{route('reg.index')}}"> <i class="fas fa-registered"></i></a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -73,16 +76,17 @@
             </div>
 
             <div class="form-group">
-                {!! Form::submit('Register', ['class'=>'btn btn-primary']) !!}
+                {!! Form::submit('Login', ['class'=>'btn btn-primary']) !!}
             </div>
 
             {!! Form::close() !!}
+
 
             <div class="col-md-12 col-sm-12 col-xs-12 w3l-bb-grid1">
                 <h5><font style="color: #2b542c"> <i class="fas fa-exclamation-triangle"></i> * marked fields are needed....! </font></h5>
             </div>
             <br>
-
+            @include('pertial.validationErr')
 
         </div>
     </div>

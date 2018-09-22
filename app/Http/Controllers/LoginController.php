@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Photo;
 use App\User;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class LoginController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(LoginRequest $request)
     {
         // return $request->all();
         $email = $request->email;
