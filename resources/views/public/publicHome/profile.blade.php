@@ -48,7 +48,7 @@
                         <input class="form-control mr-sm-2" type="search" placeholder="Search here..." name="Search" required="">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
-                    <img class="img img-circle" src="{{ asset('user_faces/' . substr(session('photo'), 2, -2))}}" height="40" width="40">
+                    <a href="{{route('userHome.create')}}"> <img class="img img-circle" src="{{ asset('user_faces/' . substr(session('photo'), 2, -2))}}" height="40" width="40"></a>
                 </div>
             </nav>
         </header>
