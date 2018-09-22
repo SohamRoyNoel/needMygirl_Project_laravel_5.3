@@ -16,3 +16,6 @@ Route::resource('/login', 'LoginController');
 Route::resource('/loggedin/userHome', 'PublicHomeController');
 
 Route::resource('/timeline', 'TimelineController');
+
+
+

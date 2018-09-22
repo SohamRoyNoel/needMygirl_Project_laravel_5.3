@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\User;
+use App\Usergallery;
 use Illuminate\Http\Request;
 use function Sodium\compare;
 
@@ -16,7 +17,9 @@ class TimelineController extends Controller
         $cat = Category::pluck('name', 'id')->all();
         // return $user;
         $user = User::where('email', '=', $em)->get();
-        return view('public.publicHome.timeline', compact('user', 'cat'));
+        $u_id = session('id');
+        $gallery = Usergallery::where('user_id', '=', $u_id)->get();
+        return view('public.publicHome.timeline', compact('user', 'cat', 'gallery'));
     }
 
     public function create()
@@ -26,6 +29,12 @@ class TimelineController extends Controller
 
     public function store(Request $request)
     {
+        $file = $request->file('file');
+        $name = time() . $file->getClientOriginalName();
+        $file->move('user_upload', $name);
+        $input['user_id'] = session('id');
+        $input['path'] = $name;
+        Usergallery::create($input);
 
     }
 
@@ -50,7 +59,9 @@ class TimelineController extends Controller
         $cat = Category::pluck('name', 'id')->all();
         // return $user;
         $user = User::where('email', '=', $em)->get();
-        return view('public.publicHome.timeline', compact('user', 'cat'));
+        $u_id = session('id');
+        $gallery = Usergallery::where('user_id', '=', $u_id)->get();
+        return view('public.publicHome.timeline', compact('user', 'cat', 'gallery'));
 
         // return redirect()->back();
     }

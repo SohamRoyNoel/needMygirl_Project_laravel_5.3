@@ -28,6 +28,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Great+Vibes" rel="stylesheet">
     <!--//web-fonts-->
+    @yield('style')
+
 </head>
 
 <body>
@@ -36,9 +38,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 @yield('intro_banner')
 <!-- //banner -->
 <br>
-    @yield('content')
+@yield('content')
 
-    @yield('testiminials')
+@yield('testiminials')
+
+@yield('album')
 
 <!-- Footer -->
 <footer class="footer-section-w3-agileits py-5">
@@ -116,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- Required common Js -->
 <script src='{{ asset('js/jquery-2.2.3.min.js') }}'></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
 
 <!-- //Required common Js -->
 <!-- stats -->
@@ -164,6 +168,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- //flexSlider -->
 
+<!-- Required common Js -->
+<script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
+<!-- //Required common Js -->
+<!--gallery -->
+<script src="{{ asset('js/jquery.chocolat.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('css/chocolat.css') }}" type="text/css" media="screen">
+<!--light-box-files -->
+<script>
+    $(function () {
+        $('.w3_agile_gallery_grid a').Chocolat();
+    });
+</script>
+<!-- //gallery -->
+
 <!-- start-smoth-scrolling -->
 
 <script src="{{ asset('js/move-top.js') }}"></script>
@@ -197,10 +215,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     });
 </script>
+
 <!-- //here ends scrolling icon -->
 <!-- Js for bootstrap working-->
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
+@yield('foot')
 <!-- //Js for bootstrap working -->
 </body>
 

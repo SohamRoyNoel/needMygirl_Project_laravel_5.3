@@ -7675,7 +7675,7 @@ button.bg-dark:focus {
 
 .pt-5,
 .py-5 {
-  padding-top: 3rem !important;
+  padding-top: 1pc;
 }
 
 .pr-5,
@@ -7894,7 +7894,7 @@ button.bg-dark:focus {
   }
   .pt-sm-3,
   .py-sm-3 {
-    padding-top: 1rem !important;
+    padding-top: 0rem !important;
   }
   .pr-sm-3,
   .px-sm-3 {

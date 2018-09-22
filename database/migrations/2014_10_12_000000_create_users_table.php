@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->integer('photo_id');
             $table->string('salary')->default('Do not wat to disclose');
             $table->string('password');
+            $table->string('about');
             $table->rememberToken();
             $table->timestamps();
         });

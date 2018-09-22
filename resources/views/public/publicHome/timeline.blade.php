@@ -44,10 +44,6 @@
                         </li>
 
                     </ul>
-                    <form action="#" method="post" class="form-inline my-2 my-lg-0 search">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search here..." name="Search" required="">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
                     <a href="{{route('timeline.index')}}"> <img class="img img-circle" src="{{ asset('user_faces/' . substr(session('photo'), 2, -2))}}" height="40" width="40"></a>
                 </div>
             </nav>
@@ -57,6 +53,10 @@
     </div>
     <!-- //banner -->
 
+@stop
+
+@section('style')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
 @stop
 
 @section('content')
@@ -77,9 +77,24 @@
             <div class="about-main row d-lg-flex justify-content-around">
                 <div class="col-lg-6 about-w3-left">
                     <div class="about-img">
-                    </div>
-                    <div class="about-bottom">
-                        <p class="paragraph-agileinfo text-white p-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis tristique est, et egestas odio. Mauris ac tristique.</p>
+                        @if($user)
+                            @foreach($user as $u1)
+                                <img style="width: 550px; height: 307px" src="{{ asset('user_faces/'. $u1->photo->path)}}" class="img-fluid" alt="Responsive image">
+
+                        </div>
+                        <div class="about-bottom">
+                            <p class="paragraph-agileinfo text-white p-4">{{$u1->about}}.</p>
+                        </div>
+                    <center><a href=""> <img title="Love Counter" height="30" width="40" src="{{ asset('images/lovebutton.jpg')}}">15</a>  <a href=""><img title="Your Proposals" height="30" width="40" src="{{ asset('images/message.jpg')}}">20</a>  <a href=""><img title="Your Request" height="30" width="40" src="{{ asset('images/lvmsg.png')}}">23</a></center>
+                    @endforeach
+                    @endif
+                    <br>
+                    <h3 class="main-w3l-title mb-sm-3 mb-2" style="color: #aa4a24">Upload Your Photos To Gallery</h3>
+                    <div class="fallback col-sm-12">
+                        {!! Form::open(['method'=>'POST', 'action'=>'TimelineController@store', 'files'=>true, 'class'=>'dropzone']) !!}
+
+                        {!! Form::close() !!}
+                        <h6 style="color: #cbb956"><i class="fas fa-exclamation-triangle"></i>*please take care not to upload more than 4 files at a time that may crash the system.</h6>
                     </div>
                 </div>
 
@@ -114,35 +129,33 @@
                     @if($user)
                         @foreach($user as $u)
 
-                            <button class="collapsible"><i class="fas fa-user"></i> Your name is <b style="color: black">{{$u->name}}</b></button>
+                            <button class="collapsible"><i class="fas fa-user"></i> Your name is <b style="color: black">&nbsp;{{$u->name}}</b></button>
                             <div class="content">
                                 <p>
                                     {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
-                                    {!! Form::label('name', 'Name:') !!}
-                                    {!! Form::text('name', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'mobile number']) !!}
-                                    <br>
-                                    {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
+                                        {!! Form::label('name', 'Change Name:') !!}
+                                        {!! Form::text('name', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'Name']) !!}
+                                        <br>
+                                        {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
                                     {!! Form::close() !!}
                                     <br>
                                 </p>
                             </div>
 
-                            <button class="collapsible"><i class="fas fa-at"></i> here's your email <b style="color: black">{{$u->email}}</b></button>
+                            <button class="collapsible"><i class="fas fa-at"></i> here's your email <b style="color: black">&nbsp;{{$u->email}}</b></button>
                             <div class="content">
                                 <p>
-                                    {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
                                     <br>
                                     {!! Form::submit('You Are Not Allowed To Change EMAIL', ['class'=>'btn btn-outline-danger disabled']) !!}
-                                    {!! Form::close() !!}
-                                    <br>
+                                    <br><br>
                                 </p>
                             </div>
 
-                            <button class="collapsible"><i class="fas fa-transgender"></i> You're <b style="color: black">{{$u->sex}}</b></button>
+                            <button class="collapsible"><i class="fas fa-transgender"></i> You're <b style="color: black">&nbsp;{{$u->sex}}</b></button>
                             <div class="content">
                                 <p>
                                     {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
-                                    {!! Form::label('sex', 'Sex:') !!}
+                                    {!! Form::label('sex', 'Change Sex:') !!}
                                     <br>
                                     {!! Form::radio('sex', 'Male') !!} Male
                                     {!! Form::radio('sex', 'Female') !!} Female
@@ -153,12 +166,105 @@
                                 </p>
                             </div>
 
-                            <button class="collapsible"><i class="fab fa-autoprefixer"></i> You're <b style="color: black">{{$u->age}} years old</b></button>
+                            <button class="collapsible"><i class="fab fa-autoprefixer"></i> You're <b style="color: black">&nbsp;{{$u->age}} years old</b></button>
                             <div class="content">
                                 <p>
                                     {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
-                                    {!! Form::label('age', 'Name:') !!}
-                                    {!! Form::text('age', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'mobile number']) !!}
+                                        {!! Form::label('age', 'Change Age:') !!}
+                                        {!! Form::text('age', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'mobile number']) !!}
+                                        <br>
+                                        {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
+                                    {!! Form::close() !!}
+                                    <br>
+                                </p>
+                            </div>
+
+                            <button class="collapsible"><i class="fas fa-church"></i> You're <b style="color: black">&nbsp;{{$u->religion}}</b></button>
+                            <div class="content">
+                                <p>
+                                    {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
+                                        <br>
+                                        {!! Form::label('religion', 'Change Religion:') !!}
+                                        {!! Form::select('religion', ['Christan' => 'Christan', 'Muslim' => 'Muslim', 'Hinduism' => 'Hinduism'], ['class'=>'input-group-text']) !!}
+                                        <br><br>
+                                        {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
+                                    {!! Form::close() !!}
+                                    <br>
+                                </p>
+                            </div>
+
+                            <button class="collapsible"><i class="fas fa-prescription"></i> You're <b style="color: black">&nbsp;{{$u->occupation}}</b></button>
+                            <div class="content">
+                                <p>
+                                    {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
+                                        <br>
+                                        {!! Form::label('occupation', 'Change Occupation:') !!}
+                                        {!! Form::select('occupation', ['Professor' => 'Professor', 'Job Holder' => 'Job Holder', 'Self Employed' => 'Self Employed']) !!}
+                                        <br><br>
+                                        {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
+                                    {!! Form::close() !!}
+                                    <br>
+                                </p>
+                            </div>
+
+                            <button class="collapsible"><i class="fas fa-home"></i> You stay at <b style="color: black">&nbsp;{{$u->address}}</b></button>
+                            <div class="content">
+                                <p>
+                                    {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
+                                        {!! Form::label('address', 'Change Address:') !!}
+                                        {!! Form::text('address', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'mobile number']) !!}
+                                        <br>
+                                        {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
+                                    {!! Form::close() !!}
+                                    <br>
+                                </p>
+                            </div>
+
+                            <button class="collapsible"><i class="far fa-laugh-wink"></i> Your Interest comes on <b style="color: black"> &nbsp;{{$u->category->name}}</b></button>
+                            <div class="content">
+                                <p>
+                                    {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
+                                        {!! Form::label('category_id', 'Change Interest:') !!}
+                                        {!! Form::select('category_id', array(''=>'Select Category') + $cat,  null, ['class'=>'form-control']) !!}
+                                        <br>
+                                        {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
+                                    {!! Form::close() !!}
+                                    <br>
+                                </p>
+                            </div>
+
+                            <button class="collapsible"><i class="fas fa-mobile-alt"></i> Your phone number is <b style="color: black">&nbsp;{{$u->phone}}</b></button>
+                            <div class="content">
+                                <p>
+                                    {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
+                                        {!! Form::label('phone', 'Change Phone No:') !!}
+                                        {!! Form::text('phone', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'mobile number']) !!}
+                                        <br>
+                                        {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
+                                    {!! Form::close() !!}
+                                    <br>
+                                </p>
+                            </div>
+
+                            <button class="collapsible"><i class="fas fa-money-bill-wave"></i> You're awesomely paid of <b style="color: black">&nbsp;{{$u->salary}}</b></button>
+                            <div class="content">
+                                <p>
+                                    {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
+                                        {!! Form::label('salary', 'Change Salary') !!}
+                                        {!! Form::text('salary', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'mobile number']) !!}
+                                        <br>
+                                        {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
+                                    {!! Form::close() !!}
+                                    <br>
+                                </p>
+                            </div>
+
+                            <button class="collapsible"><i class="fas fa-money-bill-wave"></i> <b style="color: black">&nbsp;{{$u->about}}</b></button>
+                            <div class="content">
+                                <p>
+                                    {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
+                                    {!! Form::label('about', 'Change Status') !!}
+                                    {!! Form::textarea('about', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'tell us something more about you']) !!}
                                     <br>
                                     {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
                                     {!! Form::close() !!}
@@ -166,94 +272,14 @@
                                 </p>
                             </div>
 
-                            <button class="collapsible"><i class="fas fa-church"></i> You're <b style="color: black">{{$u->religion}}</b></button>
+                            <button class="collapsible"><i class="fas fa-key"></i> Keep your password confidential <b style="color: black">&nbsp;*********</b></button>
                             <div class="content">
                                 <p>
                                     {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
-                                    <br>
-                                    {!! Form::label('religion', 'Name:') !!}
-                                    {!! Form::select('religion', ['Christan' => 'Christan', 'Muslim' => 'Muslim', 'Hinduism' => 'Hinduism'], ['class'=>'input-group-text']) !!}
-                                    <br><br>
-                                    {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
-                                    {!! Form::close() !!}
-                                    <br>
-                                </p>
-                            </div>
-
-                            <button class="collapsible"><i class="fas fa-prescription"></i> You're <b style="color: black">{{$u->occupation}}</b></button>
-                            <div class="content">
-                                <p>
-                                    {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
-                                    <br>
-                                    {!! Form::label('occupation', 'Name:') !!}
-                                    {!! Form::select('occupation', ['Professor' => 'Professor', 'Job Holder' => 'Job Holder', 'Self Employed' => 'Self Employed']) !!}
-                                    <br><br>
-                                    {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
-                                    {!! Form::close() !!}
-                                    <br>
-                                </p>
-                            </div>
-
-                            <button class="collapsible"><i class="fas fa-home"></i> You stay at <b style="color: black">{{$u->address}}</b></button>
-                            <div class="content">
-                                <p>
-                                    {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
-                                    {!! Form::label('address', 'Name:') !!}
-                                    {!! Form::text('address', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'mobile number']) !!}
-                                    <br>
-                                    {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
-                                    {!! Form::close() !!}
-                                    <br>
-                                </p>
-                            </div>
-
-                            <button class="collapsible"><i class="far fa-laugh-wink"></i> Your Interest comes on <b style="color: black">{{$u->category_id}}</b></button>
-                            <div class="content">
-                                <p>
-                                    {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
-                                    {!! Form::label('category_id', 'Name:') !!}
-                                    {!! Form::select('category_id', array(''=>'Select Category') + $cat,  null, ['class'=>'form-control']) !!}
-                                    <br>
-                                    {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
-                                    {!! Form::close() !!}
-                                    <br>
-                                </p>
-                            </div>
-
-                            <button class="collapsible"><i class="fas fa-mobile-alt"></i> Your phone number is <b style="color: black">{{$u->phone}}</b></button>
-                            <div class="content">
-                                <p>
-                                    {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
-                                    {!! Form::label('phone', 'Name:') !!}
-                                    {!! Form::text('phone', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'mobile number']) !!}
-                                    <br>
-                                    {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
-                                    {!! Form::close() !!}
-                                    <br>
-                                </p>
-                            </div>
-
-                            <button class="collapsible"><i class="fas fa-money-bill-wave"></i> You're awesomely paid of <b style="color: black">{{$u->salary}}</b></button>
-                            <div class="content">
-                                <p>
-                                    {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
-                                    {!! Form::label('salary', 'Name:') !!}
-                                    {!! Form::text('salary', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'mobile number']) !!}
-                                    <br>
-                                    {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
-                                    {!! Form::close() !!}
-                                    <br>
-                                </p>
-                            </div>
-
-                            <button class="collapsible"><i class="fas fa-key"></i> Keep your password confidential <b style="color: black">{{$u->password}}</b></button>
-                            <div class="content">
-                                <p>
-                                    {!! Form::model($u, ['method'=>'PATCH', 'action'=>['TimelineController@update', $u->id]]) !!}
-                                    {!! Form::label('password', 'Name:') !!}
-                                    {!! Form::text('password', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'mobile number']) !!}
-                                    <br>
-                                    {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
+                                        {!! Form::label('password', 'Change Password:') !!}
+                                        {!! Form::text('password', null, ['class'=>'form-control', 'autocomplete'=>'off', 'placeholder'=>'mobile number']) !!}
+                                        <br>
+                                        {!! Form::submit('Change', ['class'=>'btn btn-outline-danger']) !!}
                                     {!! Form::close() !!}
                                     <br>
                                 </p>
@@ -288,3 +314,45 @@
     </section>
 
 @stop
+
+@section('foot')
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
+
+@stop
+
+@section('album')
+    <div class="text-center">
+        <h1 style="font-style: italic; font-family: 'Comic Sans MS'; color: #e4606d">Your M<img height="70" width="70" src="{{ asset('images/cam.png')}}">st Precious Picture Album</h1>
+    </div>
+    <!-- gallery -->
+    <section class="gallery py-5">
+        <div class="container py-xl-5 py-sm-3">
+
+            <div class="row w3ls_gallery_grids">
+
+                @if($gallery)
+                    @foreach($gallery as $g)
+                        <div class="col-md-4 w3_agile_gallery_grid">
+
+                            <div class="agile_gallery_grid mt-0">
+                                <a style="width: 350px; height: 237px" title="User Uploaded Picture." href="{{ asset('user_upload/'. $g->path)}}">
+                                    <div class="agile_gallery_grid1">
+                                        <img style="width: 350px; height: 237px" src="{{ asset('user_upload/'. $g->path)}}" class="img-fluid" alt="Responsive image">
+                                        <br>
+                                    </div>
+                                </a>
+                                <br>
+                            </div>
+
+                        </div>
+                    @endforeach
+                @endif
+
+            </div>
+        </div>
+    </section>
+    <!-- //gallery -->
+
+    @stop
+

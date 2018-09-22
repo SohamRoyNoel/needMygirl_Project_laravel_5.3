@@ -33,6 +33,7 @@ class LoginController extends Controller
                 $name = $c['name'];
                 $email = $c['email'];
                 $photos = $c['photo_id'];
+                $id = $c['id'];
 
                 //return $photos;
 
@@ -43,6 +44,7 @@ class LoginController extends Controller
                 session(['name'=>$name]);
                 session(['email'=>$email]);
                 session(['photo'=>$photo]);
+                session(['id'=>$id]);
                 return redirect('/loggedin/userHome');
             }
         } else {

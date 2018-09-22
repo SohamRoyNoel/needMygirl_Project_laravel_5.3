@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function category(){
         return $this->belongsTo('App\Category');
     }
+
+    public function users(){
+        return $this->hasMany('App\Usergallery');
+    }
 }
