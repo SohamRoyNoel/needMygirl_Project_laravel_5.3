@@ -120,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- Required common Js -->
 <script src='{{ asset('js/jquery-2.2.3.min.js') }}'></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
+
 
 <!-- //Required common Js -->
 <!-- stats -->
@@ -128,6 +128,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
 
 <!-- //stats -->
+<script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+<script src="{{ asset('js/jquery.countup.js') }}"></script>
+<script>
+    $('.counter').countUp();
+</script>
 <!-- Responsiveslides -->
 
 <script src="{{ asset('js/responsiveslides.min.js') }}"></script>
@@ -181,6 +186,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     });
 </script>
 <!-- //gallery -->
+<!-- Responsiveslides -->
+<script src="{{ asset('js/responsiveslides.min.js') }}"></script>
+<script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+        // Slideshow 4
+        $("#slider3").responsiveSlides({
+            auto: true,
+            pager: true,
+            nav: false,
+            speed: 500,
+            namespace: "callbacks",
+            before: function () {
+                $('.events').append("<li>before event fired.</li>");
+            },
+            after: function () {
+                $('.events').append("<li>after event fired.</li>");
+            }
+        });
+
+    });
+</script>
+<!-- // Responsiveslides -->
+<!-- flexSlider -->
+<script defer src="{{ asset('js/jquery.flexslider.js') }}"></script>
+<script>
+    $(window).load(function () {
+        $('.flexslider').flexslider({
+            animation: "slide",
+            start: function (slider) {
+                $('body').removeClass('loading');
+            }
+        });
+    });
+</script>
+
+<!-- //flexSlider -->
 
 <!-- start-smoth-scrolling -->
 
@@ -200,14 +242,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- here stars scrolling icon -->
 <script>
     $(document).ready(function () {
-        /*
+
             var defaults = {
             containerID: 'toTop', // fading element id
             containerHoverID: 'toTopHover', // fading element hover id
             scrollSpeed: 1200,
             easingType: 'linear'
             };
-        */
+
 
         $().UItoTop({
             easingType: 'easeOutQuart'
