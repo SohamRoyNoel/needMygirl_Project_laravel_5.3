@@ -21,6 +21,8 @@ class UserRegistrationController extends Controller
     {
         session()->forget('name');
         session()->forget('email');
+        session()->forget('photo');
+        session()->forget('id');
         return redirect('/');
     }
 

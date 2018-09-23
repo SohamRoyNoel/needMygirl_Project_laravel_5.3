@@ -45,4 +45,12 @@ class User extends Authenticatable
     public function users(){
         return $this->hasMany('App\Usergallery');
     }
+
+    //middleware login
+    public static function isLogin(){
+        if (session('id')){
+            return true;
+        }
+        return false;
+    }
 }
