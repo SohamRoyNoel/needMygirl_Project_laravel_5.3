@@ -5,14 +5,15 @@ Route::get('/', function () {
     return view('public.index');
 });
 
-//Route::get('/reg', function () {
-//    return view('public.registration.registration_user');
-//});
 
+// Guest
 Route::resource('/reg', 'UserRegistrationController');
 
 Route::resource('/login', 'LoginController');
 
+
+
+// Loggedin User
 Route::group(['middleware'=>'login'], function (){
 
     Route::resource('/loggedin/userHome', 'PublicHomeController');
@@ -20,3 +21,8 @@ Route::group(['middleware'=>'login'], function (){
     Route::resource('/timeline', 'TimelineController');
 
 });
+
+
+
+// Admin
+Route::resource('/admin', 'AdminUserController');

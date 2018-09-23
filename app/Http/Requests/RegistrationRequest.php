@@ -14,7 +14,7 @@ class RegistrationRequest extends FormRequest
     public function rules()
     {
         return [
-            'role_id' => 'required',
+
             'name'=> 'required',
             'email'=> 'required',
             'sex'=> 'required',
