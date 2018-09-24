@@ -7,7 +7,7 @@
             <div class="col-md-8 four-grid">
                 <div class="four-grid3">
                     <div class="icon">
-                        <i class="fas fa-users" aria-hidden="true"></i>
+                        <i class="fas fa-tags" aria-hidden="true"></i>
                     </div>
                     <div class="four-text">
                         <h3>Category Related to What People Want</h3>
@@ -81,8 +81,8 @@
                                             <tr>
                                                 <td>{{$c->id}}</td>
                                                 <td>{{$c->name}}</td>
-                                                <td>{{$c->created_at}}</td>
-                                                <td>{{$c->updated_at}}</td>
+                                                <td>{{$c->created_at->diffForHumans()}}</td>
+                                                <td>{{$c->updated_at->diffForHumans()}}</td>
                                                 <td>
                                                     {{--<input type="submit" class="btn btn-primary" value="Update">--}}
                                                     {{--<a href="#" data-toggle="modal" data-target="#myModal1" class="" >--}}

@@ -24,6 +24,7 @@ Route::group(['middleware'=>'login'], function (){
 
 
 
+
 // Admin
 Route::resource('/admin', 'AdminUserController');
 Route::resource('/category', 'AdminCategoryController');

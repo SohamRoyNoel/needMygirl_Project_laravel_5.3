@@ -30,7 +30,7 @@ class AdminUserController extends Controller
 
     public function edit($id)
     {
-        //
+        return view('admin.User.allUser');
     }
 
     public function update(Request $request, $id)
@@ -40,6 +40,8 @@ class AdminUserController extends Controller
 
     public function destroy($id)
     {
-        //
+//        return $id;
+        User::destroy($id);
+        return redirect()->back();
     }
 }
