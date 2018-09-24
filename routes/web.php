@@ -26,3 +26,6 @@ Route::group(['middleware'=>'login'], function (){
 
 // Admin
 Route::resource('/admin', 'AdminUserController');
+Route::resource('/category', 'AdminCategoryController');
+
+Route::get('/updates/{id}', ['as'=>'updates.id', 'uses'=>'AdminCategoryController@posts']);

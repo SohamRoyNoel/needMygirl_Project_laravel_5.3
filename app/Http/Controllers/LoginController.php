@@ -48,9 +48,10 @@ class LoginController extends Controller
                 session(['id'=>$id]);
                 return redirect('/loggedin/userHome');
             }
-        } else {
-            return redirect()->back();
         }
+
+        return view('public.login.letsLogin');
+
     }
 
     public function show($id)
