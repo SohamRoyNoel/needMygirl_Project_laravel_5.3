@@ -38,6 +38,7 @@
 
                                 {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Name of new admin']) !!}
                                 <span>This is a place to add name</span>
+                                <span>&nbsp;</span>
                             </div>
                             <div class="col-md-3 grid-form">
                                 <h5>Email</h5>
@@ -46,6 +47,7 @@
 
                                 {!! Form::text('email', null, ['class'=>'form-control', 'placeholder'=>'Email of the admin']) !!}
                                 <span>This is a place to add email</span>
+                                <span>&nbsp;</span>
                             </div>
                             <div class="col-md-3 grid-form">
                                 <h5>Password</h5>

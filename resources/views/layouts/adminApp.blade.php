@@ -66,10 +66,10 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                             <a href="#"><i class="fas fa-lock"></i><br>Admins <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li>
-                                    <a href="buttons.html">View Admins</a>
+                                    <a href="{{route('admins.create')}}">View Admins</a>
                                 </li>
                                 <li>
-                                    <a href="typography.html">Make Admin</a>
+                                    <a href="{{route('admins.index')}}">Make Admin</a>
                                 </li>
                             </ul>
                             <!-- /nav-second-level -->

@@ -15,7 +15,8 @@ class AdminaddController extends Controller
 
     public function create()
     {
-        //
+        $alladmin = Admin::all();
+        return view('Admin.AdminCreater.viewAlladmin', compact('alladmin'));
     }
 
     public function store(Request $request)
