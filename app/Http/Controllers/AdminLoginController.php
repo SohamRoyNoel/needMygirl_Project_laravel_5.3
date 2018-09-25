@@ -33,15 +33,15 @@ class AdminLoginController extends Controller
 
         if ($check){
             foreach ($check as $c){
-                $name = $c['name'];
-                $email = $c['email'];
+                $namess = $c['name'];
+                $emailss = $c['email'];
                 $pri = $c['privilage'];
                 $no = $c['no_user_access'];
 
                 if ($pri === "ADMIN" && $no === "xx12BGH") {
-                    session(['nameAdmin' => $name]);
-                    session(['emailAdmin' => $email]);
-                    return redirect('/');
+                    session(['nameAdmin' => $namess]);
+                    session(['emailAdmin' => $emailss]);
+                    return view('Admin.adminIndex');
                 }
             }
         }

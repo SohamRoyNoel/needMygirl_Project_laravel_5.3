@@ -26,12 +26,15 @@ Route::group(['middleware'=>'login'], function (){
 
 
 // Admin
-Route::resource('/admin', 'AdminUserController');
-Route::resource('/category', 'AdminCategoryController');
-Route::resource('/admins', 'AdminaddController');
-Route::resource('/adminLogin', 'AdminLoginController');
-Route::resource('/adminLoginF', 'AdminForgotPasswordController');
+Route::group(['middleware'=>'loginAdmin'], function (){
+    Route::resource('/admin', 'AdminUserController');
+    Route::resource('/category', 'AdminCategoryController');
+    Route::resource('/admins', 'AdminaddController');
 
+    Route::resource('/adminLoginF', 'AdminForgotPasswordController');
+    Route::resource('/admindash', 'AdminDashboardController');
+});
+Route::resource('/adminLogin', 'AdminLoginController');
 
 Route::get('/updates/{id}', ['as'=>'updates.id', 'uses'=>'AdminCategoryController@posts']);
 

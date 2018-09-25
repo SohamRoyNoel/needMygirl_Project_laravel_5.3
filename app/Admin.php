@@ -13,4 +13,12 @@ class Admin extends Model
         'password',
         'no_user_access'
     ];
+
+    public static function isAdminloggedin(){
+
+        if (session('nameAdmin') && session('emailAdmin')){
+            return true;
+        }
+        return false;
+    }
 }
