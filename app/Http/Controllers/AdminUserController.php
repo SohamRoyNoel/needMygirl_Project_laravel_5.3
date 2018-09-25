@@ -30,6 +30,7 @@ class AdminUserController extends Controller
 
     public function edit($id)
     {
+        return $id;
         return view('admin.User.allUser');
     }
 

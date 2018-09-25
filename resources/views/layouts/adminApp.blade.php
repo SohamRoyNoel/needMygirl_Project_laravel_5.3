@@ -37,6 +37,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     <script src="{{ asset('js/jsAdmin/custom.js') }}"></script>
     <link href="{{ asset('css/cssAdmin/custom.css') }}" rel="stylesheet">
     <!--//Metis Menu -->
+
 </head>
 <body class="cbp-spmenu-push">
 <div class="main-content">
@@ -47,96 +48,46 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                 <div class="scrollbar scrollbar1">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.html"><i class="fa fa-home nav_icon"></i>Dashboard</a>
+                            <a href="index.html"><i class="fas fa-tachometer-alt"></i><br>Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-cogs nav_icon"></i>Components <span class="fa arrow"></span></a>
+                            <a href="#"><i class="fas fa-users"></i><br>Users <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li>
-                                    <a href="gallery.html">Gallery</a>
+                                    <a href="{{route('admin.index')}}">View Users</a>
                                 </li>
                                 <li>
-                                    <a href="grid.html">Grid</a>
+                                    <a href="grid.html">Update User</a>
                                 </li>
                             </ul>
                             <!-- /nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-book nav_icon"></i>Elements <span class="fa arrow"></span></a>
+                            <a href="#"><i class="fas fa-lock"></i><br>Admins <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
                                 <li>
-                                    <a href="buttons.html">Buttons</a>
+                                    <a href="buttons.html">View Admins</a>
                                 </li>
                                 <li>
-                                    <a href="typography.html">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="icon.html">Icon</a>
+                                    <a href="typography.html">Make Admin</a>
                                 </li>
                             </ul>
                             <!-- /nav-second-level -->
                         </li>
                         <li>
-                            <a href="widgets.html"><i class="fa fa-th-large nav_icon"></i>Widgets</a>
+                            <a href="widgets.html"><i class="fab fa-envira"></i><br>User Gallery</a>
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-check-square-o nav_icon"></i>Forms<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="inputs.html">Inputs</a>
-                                </li>
-                                <li>
-                                    <a href="validation.html">Form Validation</a>
-                                </li>
-                            </ul>
-                            <!-- //nav-second-level -->
+                            <a href="{{route('category.index')}}"><i class="fas fa-tags"></i><br>Categories</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-envelope nav_icon"></i>Mailbox<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="inbox.html">Inbox</a>
-                                </li>
-                                <li>
-                                    <a href="inboxdetails.html">Inbox Details</a>
-                                </li>
-                            </ul>
-                            <!-- //nav-second-level -->
+                            <a href="#"><i class="fab fa-product-hunt"></i><br>Policies</a>
                         </li>
                         <li>
-                            <a href="maps.html"><i class="fa fa-location-arrow nav_icon"></i>Maps</a>
+                            <a href="#"><i class="fa fa-question-circle"></i><br>FAQs</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-file-text-o nav_icon"></i>Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="signup.html">SignUp</a>
-                                </li>
-                                <li>
-                                    <a href="blank-page.html">Blank Page</a>
-                                </li>
-                            </ul>
-                            <!-- //nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="charts.html" class="chart-nav"><i class="fa fa-bar-chart nav_icon"></i>Charts</a>
-                        </li>
-                        <li>
-                            <a href="#" class="chart11-nav"><i class="fa fa-list-ul nav_icon"></i>Extras<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level collapse">
-                                <li>
-                                    <a href="tables.html">Tables</a>
-                                </li>
-                                <li>
-                                    <a href="404.html">404 Page</a>
-                                </li>
-                            </ul>
-                            <!-- //nav-second-level -->
-                        </li>
+
                     </ul>
                 </div>
                 <!-- //sidebar-collapse -->
@@ -310,33 +261,8 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <script src="{{ asset('js/jsAdmin/jquery.nicescroll.js') }}"></script>
 <script src="{{ asset('js/jsAdmin/jquery.flexslider.js') }}"></script>
 <!--//scrolling js-->
-<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content modal-info">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <div class="compose-grids">
-                    <form>
-                        <h3>New Message </h3>
-                        <div class="form-group">
-                            <input type="type" class="form-control" id="exampleInputPassword1" placeholder="To:">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Subject:">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="" id="" class="form-control" cols="30" rows="10"></textarea>
-                        </div>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Save changes</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
+
 <!-- //Register -->
 </body>
 </html>
