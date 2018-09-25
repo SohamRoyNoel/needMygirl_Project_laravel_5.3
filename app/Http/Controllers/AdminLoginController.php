@@ -14,7 +14,10 @@ class AdminLoginController extends Controller
 
     public function create()
     {
-
+        session()->forget('nameAdmin');
+        session()->forget('emailAdmin');
+        session()->flush();
+        return view('public.index');
     }
 
     public function store(Request $request)
@@ -36,8 +39,8 @@ class AdminLoginController extends Controller
                 $no = $c['no_user_access'];
 
                 if ($pri === "ADMIN" && $no === "xx12BGH") {
-                    session(['name' => $name]);
-                    session(['email' => $email]);
+                    session(['nameAdmin' => $name]);
+                    session(['emailAdmin' => $email]);
                     return redirect('/');
                 }
             }
@@ -62,6 +65,6 @@ class AdminLoginController extends Controller
 
     public function destroy($id)
     {
-        //
+
     }
 }

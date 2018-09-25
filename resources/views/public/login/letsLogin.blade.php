@@ -71,6 +71,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12 w3l-bb-grid1">
                     <br>
                     <a href=""><h6><font style="color: #c69500"> <i class="fas fa-question-circle"></i> Forgot Your Password....? </font></h6></a>
+                    <a href="{{route('adminLogin.index')}}"><h6><font style="color: #1da1f2"> <i class="fas fa-eye"></i> Hold on...! Are you admin? Log from here please....? </font></h6></a>
                 </div>
 
             </div>

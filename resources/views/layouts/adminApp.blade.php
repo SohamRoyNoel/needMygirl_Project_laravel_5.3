@@ -87,6 +87,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                         <li>
                             <a href="#"><i class="fa fa-question-circle"></i><br>FAQs</a>
                         </li>
+                        <li>
+                            <a href="{{route('adminLogin.create')}}"><i class="fas fa-sign-out-alt"></i><br>LogOut</a>
+                        </li>
 
                     </ul>
                 </div>
