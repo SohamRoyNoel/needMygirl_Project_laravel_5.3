@@ -23,7 +23,7 @@ class AdminaddController extends Controller
     {
         $input['name'] = $request->name;
         $input['email'] = $request->email;
-        $input['password'] = bcrypt($request->password);
+        $input['password'] = $request->password;
         Admin::create($input);
         return redirect()->back();
     }
