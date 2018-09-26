@@ -38,3 +38,12 @@ Route::resource('/adminLogin', 'AdminLoginController');
 
 Route::get('/updates/{id}', ['as'=>'updates.id', 'uses'=>'AdminCategoryController@posts']);
 
+
+// External Pages
+Route::get('/contact', function (){
+    return view('public.contact');
+});
+
+Route::get('/about', function (){
+    return view('public.about');
+});

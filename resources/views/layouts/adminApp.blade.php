@@ -56,9 +56,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                                 <li>
                                     <a href="{{route('admin.index')}}">View Users</a>
                                 </li>
-                                <li>
-                                    <a href="grid.html">Update User</a>
-                                </li>
+
                             </ul>
                             <!-- /nav-second-level -->
                         </li>
