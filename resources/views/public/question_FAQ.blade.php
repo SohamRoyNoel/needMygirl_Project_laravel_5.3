@@ -49,15 +49,88 @@
                 </div>
             </nav>
         </header>
-        <!-- //header -->
-        <h1 class="inner-title-agileits-w3layouts">Join Today, To Explore Your Life Partner</h1>
+        <h1 class="inner-title-agileits-w3layouts">Frequently Asked Questions</h1>
     </div>
-    <!-- //banner -->
 
 @stop
 
 @section('content')
 
+    <style>
+        .collapsible {
+            background-color: #b8c9f1;
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .active, .collapsible:hover {
+            background-color: #1cc7ff;
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+    </style>
+
+    <section class="contact py-5">
+        <div class="container py-xl-5 py-sm-3">
+            <h5 class="main-w3l-title mb-sm-3 mb-2">Write Your question down bellow</h5>
+            @if($qus)
+                    @foreach($qus as $q)
+                        <div class="row">
+                            <div class="col-lg-12 wthree_contact_left">
+                                <button class="collapsible" style="color: black"><b><h5>{{$q->question}}</h5></b>
+                                </button>
+                                <div class="content">
+                                    asked : {{$q->created_at->diffForHumans()}}
+                                    <p><b>Description:</b> <br>{{$q->description}}.</p>
 
 
+                                    {!! Form::open(['method'=>'POST', 'action'=>'ReplyController@store', 'files'=>true]) !!}
+
+                                            <div class="form-group">
+                                                {!! Form::textarea('reply', null, ['class'=>'form-control', 'placeholder'=>'Post a reply']) !!}
+                                            </div>
+
+                                            {{ Form::hidden('question_id', $q->id) }}
+
+                                            <div class="form-group">
+                                                {!! Form::submit('Reply', ['class'=>'btn btn-primary']) !!}
+                                            </div>
+
+                                    {!! Form::close() !!}
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                @endforeach
+            @endif
+        </div>
+    </section>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
 @stop

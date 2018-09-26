@@ -47,3 +47,7 @@ Route::get('/contact', function (){
 Route::get('/about', function (){
     return view('public.about');
 });
+
+Route::resource('/ask', 'FAQController');
+Route::resource('/FAQ', 'FAQController@create');
+Route::resource('/reply', 'ReplyController');
