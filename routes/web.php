@@ -33,6 +33,7 @@ Route::group(['middleware'=>'loginAdmin'], function (){
 
     Route::resource('/adminLoginF', 'AdminForgotPasswordController');
     Route::resource('/admindash', 'AdminDashboardController');
+    Route::resource('/adminFAQ', 'AdminFAQController');
 });
 Route::resource('/adminLogin', 'AdminLoginController');
 
