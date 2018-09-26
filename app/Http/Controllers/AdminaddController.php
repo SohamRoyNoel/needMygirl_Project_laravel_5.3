@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
+use App\Http\Requests\MakeAdminRequest;
 use Illuminate\Http\Request;
 
 class AdminaddController extends Controller
@@ -19,7 +20,7 @@ class AdminaddController extends Controller
         return view('Admin.AdminCreater.viewAlladmin', compact('alladmin'));
     }
 
-    public function store(Request $request)
+    public function store(MakeAdminRequest $request)
     {
         $input['name'] = $request->name;
         $input['email'] = $request->email;

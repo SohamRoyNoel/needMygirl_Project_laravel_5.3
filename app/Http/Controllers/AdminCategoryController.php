@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\AdminCategoryRequest;
 use Illuminate\Http\Request;
 
 class AdminCategoryController extends Controller
@@ -18,7 +19,7 @@ class AdminCategoryController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(AdminCategoryRequest $request)
     {
         Category::create($request->all());
         return redirect()->back();

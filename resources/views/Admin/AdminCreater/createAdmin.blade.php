@@ -74,6 +74,7 @@
                         </div>
                         {!! Form::close() !!}
 
+                        @include('pertial.validationErr')
                     </div>
                 </div>
                 <div class="col-md-6 form-grid">
