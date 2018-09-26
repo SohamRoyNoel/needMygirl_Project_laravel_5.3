@@ -29,8 +29,8 @@
                                 Question
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-center" href="stories.html">Ask A Question</a>
-                                <a class="dropdown-item text-center" href="typography.html">FAQ</a>
+                                <a class="dropdown-item text-center" href="{{route('ask.index')}}">Ask A Question</a>
+                                <a class="dropdown-item text-center" href="{{route('ask.create')}}">FAQ</a>
                             </div>
                         </li>
                         <li class="nav-item active">

@@ -25,11 +25,11 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                                aria-expanded="false">
-                                Dropdown
+                                Question
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-center" href="stories.html">Stories</a>
-                                <a class="dropdown-item text-center" href="typography.html">Typography</a>
+                                <a class="dropdown-item text-center" href="{{route('ask.index')}}">Ask A Question</a>
+                                <a class="dropdown-item text-center" href="{{route('ask.create')}}">FAQ</a>
                             </div>
                         </li>
                         <li class="nav-item">

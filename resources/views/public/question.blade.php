@@ -27,14 +27,17 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item text-center" href="{{route('ask.index')}}">Ask A Question</a>
-                                <a class="dropdown-item text-center" href="typography.html">FAQ</a>
+                                <a class="dropdown-item text-center" href="{{route('ask.create')}}">FAQ</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="{{url('/contact')}}">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" title="Login" href="{{route('login.index')}}"> <i class="fas fa-sign-in-alt"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" title="Registration" href="{{route('reg.index')}}"> <i class="fas fa-registered"></i></a>
                         </li>
                     </ul>
                     <form action="#" method="post" class="form-inline my-2 my-lg-0 search">

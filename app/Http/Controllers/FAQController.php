@@ -16,8 +16,7 @@ class FAQController extends Controller
     public function create()
     {
         $qus = Question::all();
-        $rep = Reply::all();
-        return view('public.question_FAQ', compact('qus', 'rep'));
+        return view('public.question_FAQ', compact('qus'));
     }
 
     public function store(Request $request)

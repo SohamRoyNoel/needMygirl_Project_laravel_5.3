@@ -6,7 +6,7 @@
 
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="index.html">Ti Amo</a>
+                <a class="navbar-brand" href="{{url('/')}}">Ti Amo</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -15,15 +15,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home
+                            <a class="nav-link" href="{{url('/')}}">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="gallery.html"></a>
+                            <a class="nav-link" href="{{url('/about')}}">About</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -31,15 +28,18 @@
                                 Question
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item text-center" href="stories.html">Ask A Question</a>
-                                <a class="dropdown-item text-center" href="typography.html">FAQ</a>
+                                <a class="dropdown-item text-center" href="{{route('ask.index')}}">Ask A Question</a>
+                                <a class="dropdown-item text-center" href="{{route('ask.create')}}">FAQ</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="{{url('/contact')}}">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" title="Login" href="{{route('login.index')}}"> <i class="fas fa-sign-in-alt"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" title="Registration" href="{{route('reg.index')}}"> <i class="fas fa-registered"></i></a>
                         </li>
                     </ul>
                     <form action="#" method="post" class="form-inline my-2 my-lg-0 search">
@@ -83,7 +83,7 @@
 
     <section class="contact py-5">
         <div class="container py-xl-5 py-sm-3">
-            <h5 class="main-w3l-title mb-sm-3 mb-2">Write Your question down bellow</h5>
+            <h5 class="main-w3l-title mb-sm-3 mb-2">Find Your question down bellow</h5>
             @if($qus)
                     @foreach($qus as $q)
                         <div class="row">
@@ -92,8 +92,18 @@
                                 </button>
                                 <div class="content">
                                     asked : {{$q->created_at->diffForHumans()}}
-                                    <p><b>Description:</b> <br>{{$q->description}}.</p>
+                                    <p><b>Description:</b> <br>{{$q->description}}</p>
 
+                                    <b>Replies</b>
+                                    @foreach($q->replies as $rep)
+                                        <table class="table table-borderless table-warning">
+                                            <tr>
+                                                <td>
+                                                    {{$rep->reply}}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        @endforeach
 
                                     {!! Form::open(['method'=>'POST', 'action'=>'ReplyController@store', 'files'=>true]) !!}
 
