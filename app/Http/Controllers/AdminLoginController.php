@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
+use App\Http\Requests\AdminLoginRequest;
 use Illuminate\Http\Request;
 
 class AdminLoginController extends Controller
@@ -20,7 +21,7 @@ class AdminLoginController extends Controller
         return view('public.index');
     }
 
-    public function store(Request $request)
+    public function store(AdminLoginRequest $request)
     {
         // return $request->all();
         $name = $request->name;

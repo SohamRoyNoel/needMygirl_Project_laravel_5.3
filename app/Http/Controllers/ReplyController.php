@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FAQReplyRequest;
 use App\Reply;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class ReplyController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(FAQReplyRequest $request)
     {
         Reply::create($request->all());
         return redirect('/');

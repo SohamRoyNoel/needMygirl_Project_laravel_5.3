@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
+use App\Http\Requests\AdminForgotpasswordRequest;
 use Illuminate\Http\Request;
 
 class AdminForgotPasswordController extends Controller
@@ -17,7 +18,7 @@ class AdminForgotPasswordController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(AdminForgotpasswordRequest $request)
     {
         $email = $request->email;
         $ps1 = $request->password;
@@ -29,7 +30,6 @@ class AdminForgotPasswordController extends Controller
             $finds1->update($input);
             return view('Admin.Login.adminLogin');
         }
-
     }
 
     public function show($id)

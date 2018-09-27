@@ -32,10 +32,10 @@
                     New Password:
                     {!! Form::password('password', null, ['class'=>'form-control', 'placeholder'=>'Password']) !!}
 
-                    {!! Form::submit('Log In', ['class'=>'btn btn-primary']) !!}
+                    {!! Form::submit('Confirm Change', ['class'=>'btn btn-primary']) !!}
 
                 {!! Form::close() !!}
-
+                @include('pertial.validationErr')
             </div>
         </div>
     </div>

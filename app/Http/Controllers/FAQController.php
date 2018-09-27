@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FAQquestionRequest;
 use App\Question;
 use App\Reply;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class FAQController extends Controller
         return view('public.question_FAQ', compact('qus'));
     }
 
-    public function store(Request $request)
+    public function store(FAQquestionRequest $request)
     {
         // return $request->all();
         Question::create($request->all());

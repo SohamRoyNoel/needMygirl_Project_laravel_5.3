@@ -31,10 +31,15 @@ Route::group(['middleware'=>'loginAdmin'], function (){
     Route::resource('/category', 'AdminCategoryController');
     Route::resource('/admins', 'AdminaddController');
 
-    Route::resource('/adminLoginF', 'AdminForgotPasswordController');
+
     Route::resource('/admindash', 'AdminDashboardController');
     Route::resource('/adminFAQ', 'AdminFAQController');
 });
+
+//Forgot password
+Route::resource('/adminLoginF', 'AdminForgotPasswordController');
+
+
 Route::resource('/adminLogin', 'AdminLoginController');
 
 Route::get('/updates/{id}', ['as'=>'updates.id', 'uses'=>'AdminCategoryController@posts']);

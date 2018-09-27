@@ -27,14 +27,13 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     <!-- js-->
     <script src="{{ asset('js/jsAdmin/bootstrap.js') }}"></script>
     <script src="{{ asset('js/jsAdmin/jquery-1.11.1.min.js') }}"></script>
-    <script src="{{ asset('js/jsAdmin/modernizr.custom.js') }}"></script>
+
     <!--webfonts-->
     <link href='//fonts.googleapis.com/css?family=Comfortaa:400,700,300' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Muli:400,300,300italic,400italic' rel='stylesheet' type='text/css'>
     <!--//webfonts-->
     <!-- Metis Menu -->
-    <script src="{{ asset('js/jsAdmin/metisMenu.min.js') }}"></script>
-    <script src="{{ asset('js/jsAdmin/custom.js') }}"></script>
+
     <link href="{{ asset('css/cssAdmin/custom.css') }}" rel="stylesheet">
     <!--//Metis Menu -->
 
@@ -84,7 +83,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                             <a href="#"><i class="fab fa-product-hunt"></i><br>Policies</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-question-circle"></i><br>FAQs</a>
+                            <a href="{{route('adminFAQ.index')}}"><i class="fa fa-question-circle"></i><br>FAQs</a>
                         </li>
                         <li>
                             <a href="{{route('adminLogin.create')}}"><i class="fas fa-sign-out-alt"></i><br>LogOut</a>
@@ -262,6 +261,9 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <!--scrolling js-->
 <script src="{{ asset('js/jsAdmin/jquery.nicescroll.js') }}"></script>
 <script src="{{ asset('js/jsAdmin/jquery.flexslider.js') }}"></script>
+    <script src="{{ asset('js/jsAdmin/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('js/jsAdmin/custom.js') }}"></script>
+    <script src="{{ asset('js/jsAdmin/modernizr.custom.js') }}"></script>
 <!--//scrolling js-->
 
 
