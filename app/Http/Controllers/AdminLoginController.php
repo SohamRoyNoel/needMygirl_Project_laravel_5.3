@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
+use App\Category;
 use App\Http\Requests\AdminLoginRequest;
+use App\Question;
+use App\Reply;
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminLoginController extends Controller
@@ -42,7 +46,14 @@ class AdminLoginController extends Controller
                 if ($pri === "ADMIN" && $no === "xx12BGH") {
                     session(['nameAdmin' => $namess]);
                     session(['emailAdmin' => $emailss]);
-                    return view('Admin.adminIndex');
+
+                    $userC = User::count();
+                    $interestC = Category::count();
+                    $questionC = Question::count();
+                    $replyC = Reply::count();
+                    $userF = User::where('sex', 'Female')->count();
+                    $userM = User::where('sex', 'Male')->count();
+                    return view('Admin.adminIndex', compact('userC', 'userM', 'userF', 'interestC', 'questionC', 'replyC'));
                 }
             }
         }

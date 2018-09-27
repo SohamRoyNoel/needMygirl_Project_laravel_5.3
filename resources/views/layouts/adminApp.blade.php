@@ -266,7 +266,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
     <script src="{{ asset('js/jsAdmin/modernizr.custom.js') }}"></script>
 <!--//scrolling js-->
 
-
+@yield('charts')
 <!-- //Register -->
 </body>
 </html>
