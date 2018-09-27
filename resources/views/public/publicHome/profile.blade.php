@@ -92,9 +92,9 @@
                             <div class="form-group">
 
                                 @if($fin->sex == 'Male')
-                                    <a title="Let him know your love" href="{{route('reg.edit', $fin->id)}}"> <img height="100" width="150" src="{{ asset('images/lovebutton.jpg')}}"></a>
-                                @else
-                                    <a title="Let her know your love" href="{{route('reg.edit', $fin->id)}}"> <img height="100" width="150" src="{{ asset('images/lovebutton.jpg')}}"></a>
+                                        <a title="Let him know your love" href="{{route('reg.edit', $fin->id)}}"> <img height="100" width="150" src="{{ asset('images/lovebutton.jpg')}}"></a>{{$fin->likes}}
+                                    @else
+                                        <a title="Let her know your love" href="{{route('reg.edit', $fin->id)}}"> <img height="100" width="150" src="{{ asset('images/lovebutton.jpg')}}"></a>{{$fin->likes}}
                                 @endif
                                 <br>
                                 <a title="Go Back to main page" href="{{route('userHome.index')}}"> <img height="150" width="150" src="{{ asset('images/back.png')}}"></a>

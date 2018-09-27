@@ -53,14 +53,19 @@ class UserRegistrationController extends Controller
     public function edit($id)
     {
         $ids = User::findOrFail($id);
+        $self = session('id');
 
-        $like = $ids['likes'];
+        if ($id != $self) {
+            $like = $ids['likes'];
 
-        $input['likes'] = $like + 1;
+            $input['likes'] = $like + 1;
 
-        User::findOrFail($id)->update($input);
+            User::findOrFail($id)->update($input);
+
+        }
 
         return redirect()->back();
+
     }
 
     public function update(Request $request, $id)
