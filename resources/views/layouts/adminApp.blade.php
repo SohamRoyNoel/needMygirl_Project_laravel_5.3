@@ -48,7 +48,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                 <div class="scrollbar scrollbar1">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.html"><i class="fas fa-tachometer-alt"></i><br>Dashboard</a>
+                            <a href="{{route('admindash.index')}}"><i class="fas fa-tachometer-alt"></i><br>Dashboard</a>
                         </li>
                         <li>
                             <a href="#"><i class="fas fa-users"></i><br>Users <span class="fa arrow"></span></a>

@@ -31,7 +31,6 @@ Route::group(['middleware'=>'loginAdmin'], function (){
     Route::resource('/category', 'AdminCategoryController');
     Route::resource('/admins', 'AdminaddController');
 
-
     Route::resource('/admindash', 'AdminDashboardController');
     Route::resource('/adminFAQ', 'AdminFAQController');
     Route::resource('/gallery', 'AdminpullphotoController');

@@ -47,6 +47,7 @@ class AdminLoginController extends Controller
                     session(['nameAdmin' => $namess]);
                     session(['emailAdmin' => $emailss]);
 
+                    // pulling for the chart on ADMIN Dashboard
                     $userC = User::count();
                     $interestC = Category::count();
                     $questionC = Question::count();

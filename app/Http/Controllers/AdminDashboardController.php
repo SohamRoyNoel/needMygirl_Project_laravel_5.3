@@ -2,13 +2,24 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Category;
+use App\Question;
+use App\Reply;
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminDashboardController extends Controller
 {
     public function index()
     {
-        return view('Admin.adminIndex');
+        $userC = User::count();
+        $interestC = Category::count();
+        $questionC = Question::count();
+        $replyC = Reply::count();
+        $userF = User::where('sex', 'Female')->count();
+        $userM = User::where('sex', 'Male')->count();
+        return view('Admin.adminIndex', compact('userC', 'userM', 'userF', 'interestC', 'questionC', 'replyC'));
     }
 
     public function create()
