@@ -34,6 +34,7 @@ Route::group(['middleware'=>'loginAdmin'], function (){
 
     Route::resource('/admindash', 'AdminDashboardController');
     Route::resource('/adminFAQ', 'AdminFAQController');
+    Route::resource('/gallery', 'AdminpullphotoController');
 });
 
 //Forgot password

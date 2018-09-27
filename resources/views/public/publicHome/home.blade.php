@@ -109,7 +109,9 @@
                 {{$find->render() }}<br>
 
         </div>
+
     </nav>
+
 
     <nav aria-label="Page navigation example">
         <div class="pagination justify-content-center">

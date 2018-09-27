@@ -9,4 +9,8 @@ class Photo extends Model
     protected $fillable = [
         'path'
     ];
+
+    public function users(){
+        return $this->hasMany('App\User');
+    }
 }

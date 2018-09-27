@@ -73,7 +73,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
                             <!-- /nav-second-level -->
                         </li>
                         <li>
-                            <a href="widgets.html"><i class="fab fa-envira"></i><br>User Gallery</a>
+                            <a href="{{route('gallery.index')}}"><i class="fab fa-envira"></i><br>User Gallery</a>
                         </li>
 
                         <li>
