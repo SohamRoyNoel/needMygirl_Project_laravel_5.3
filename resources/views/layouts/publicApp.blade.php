@@ -22,6 +22,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="{{ asset('css/flexslider.css') }}" type="text/css" media="screen" property="" />
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="icon" href="{{ asset('images/icons.png')}}" type="image/x-icon" >
     <!--// Style-sheets -->
     <!--web-fonts-->
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
@@ -80,25 +81,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-lg-4 footer-grids-w3-agile">
                 <h3>Get in touch</h3>
                 <address>
-                    <p>Congress Yerevan, 1 Italy St, Yerevan,</p>
-                    <p class="my-2">Armenia,No 008921</p>
-                    <p class="phone">phone: +0(21) 334 5678</p>
-                    <p class="phone my-2">Fax: +0(21) 334 5678</p>
+                    <p>Salt Lake City, Kolkata, India</p>
+                    <p class="my-2">India,No 869757</p>
+                    <p class="phone">phone: +91 86975 72964</p>
+                    <p class="phone my-2">Fax: +(033) 7485 9652</p>
                     <p class="phone">Mail:
-                        <a href="mailto:info@example.com">info@example.com</a>
+                        <a href="mailto:info@example.com">soham.roy.developer@gmail.com</a>
                     </p>
                 </address>
             </div>
             <div class="col-lg-4 footer-grids-w3-agile">
                 <h3>Twitter feed</h3>
                 <ul class="w3agile_footer_grid_list">
-                    <li>Ut aut reiciendis voluptatibus adipiscing
-                        <a href="#">example.com</a> alias, ut aut.
+                    <li>Find Our Works On Tweeter, With love
+                        <a href="#">example.com</a> come join us.
                         <span>
 								<i class="fab fa-twitter"></i> 02 days ago</span>
                     </li>
-                    <li>Itaque earum rerum hic tenetur a sapiente
-                        <a href="#">example.com</a> ut aut.
+                    <li>Find our clients' rewiew here on company's tweeter
+                        <a href="#">example.com</a> .
                         <span>
 								<i class="fab fa-twitter"></i> 03 days ago</span>
                     </li>
@@ -112,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="copyright-w3layouts">
     <div class="container">
         <p class="py-xl-4 py-3">© 2018 Marry Off . All Rights Reserved | Design by
-            <a href="http://w3layouts.com/"> W3layouts </a>
+            <a href=""> Soham Roy </a>
         </p>
     </div>
 </div>

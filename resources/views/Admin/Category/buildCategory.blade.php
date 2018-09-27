@@ -86,16 +86,7 @@
                                                 <td>{{$c->created_at->diffForHumans()}}</td>
                                                 <td>{{$c->updated_at->diffForHumans()}}</td>
                                                 <td>
-                                                    {{--<input type="submit" class="btn btn-primary" value="Update">--}}
-                                                    {{--<a href="#" data-toggle="modal" data-target="#myModal1" class="" >--}}
-                                                        {{--{!! Form::model($c, ['method'=>'PATCH', 'action'=>['AdminCategoryController@update', $c->id]]) !!}--}}
-                                                            {{--{!! Form::submit('Update', ['class'=>'btn btn-primary']) !!} --}}
-                                                        {{--{!! Form::close() !!}--}}
-                                                        {{--<input type="submit" class="" value="Update">--}}
-
                                                         <a href="{{route('updates.id', $c->id)}}" data-toggle="modal" data-target="#myModal1" class="btn btn-primary">Update</a>
-                                                    {{--</a>--}}
-
                                                 </td>
                                                 <td>
                                                     {!! Form::open(['method'=>'Delete', 'action' =>['AdminCategoryController@destroy', $c->id]]) !!}
@@ -137,10 +128,6 @@
                                     <div class="form-group">
                                         {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Updated name']) !!}
                                     </div>
-                                    {{--<div class="form-group">--}}
-                                    {{--<textarea name="" id="" class="form-control" cols="30" rows="10"></textarea>--}}
-                                    {{--{!! Form::textarea('policies', null, ['class'=>'form-control']) !!}--}}
-                                    {{--</div>--}}
                                     {!! Form::submit('Close', ['class'=>'btn btn-primary', 'data-dismiss'=>'modal']) !!}
                                     {!! Form::submit('Save changes', ['class'=>'btn btn-success']) !!}
 
