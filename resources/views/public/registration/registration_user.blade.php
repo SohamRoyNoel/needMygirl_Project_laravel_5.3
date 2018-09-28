@@ -129,8 +129,19 @@
             </div>
 
             <div class="form-group">
-                {!! Form::submit('Register', ['class'=>'btn btn-primary']) !!}
+                {!! Form::submit('Register', ['class'=>'btn btn-primary', 'onclick'=>"myFunction()"]) !!}
             </div>
+            <script>
+                function myFunction() {
+                    var txt;
+                    if (confirm("Press a button!")) {
+                        txt = "You pressed OK!";
+                    } else {
+                        txt = "You pressed Cancel!";
+                    }
+                    document.getElementById("demo").innerHTML = txt;
+                }
+            </script>
 
             {!! Form::close() !!}
 

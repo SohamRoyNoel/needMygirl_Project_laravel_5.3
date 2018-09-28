@@ -32,22 +32,19 @@ class PublicHomeController extends Controller
 
     public function edit($id)
     {
-//        $whom_to_like = $id;
-//        $who_is_liking = session('id');
-//        $liker_id = $whom_to_like . $who_is_liking;
-//        $like = 1;
-//        $input['likes'] = $like;
-//        $input['liker_id'] = $liker_id;
-//        $input['user_id'] = $who_is_liking;
-//        $input['liked_to'] = $whom_to_like;
-//
-//        $Id = Like::where('user_id','=',$who_is_liking)->where('liker_id','=',$liker_id)->get();
-//
-//        if (!is_null($Id)){
-//            Like::create($input);
-//        }
-//
-//        return redirect()->back();
+        $user_id = $id;
+        $like_from = session('id');
+        $ifExists = Like::where('like_from', $like_from)->where('user_id', $user_id)->get();
+        foreach ($ifExists as $e){
+            $ids = $e['id'];
+            return redirect()->back();
+        }
+        $input['like'] = 1;
+        $input['like_from'] = $like_from;
+        $input['user_id'] = $user_id;
+
+        Like::create($input);
+        return redirect()->back();
     }
 
     public function update(Request $request, $id)

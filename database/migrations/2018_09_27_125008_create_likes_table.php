@@ -10,10 +10,9 @@ class CreateLikesTable extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('likes');
-            $table->string('liker_id')->unique();
+            $table->integer('like');
+            $table->integer('like_from');
             $table->integer('user_id');
-            $table->string('liked_to');
             $table->timestamps();
         });
     }

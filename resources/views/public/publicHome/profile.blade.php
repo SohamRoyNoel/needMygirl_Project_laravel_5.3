@@ -90,12 +90,11 @@
                         </td>
                         <td>
                             <div class="form-group">
+                                @foreach($fin->like as $lk)
 
-                                @if($fin->sex == 'Male')
-                                        <a title="Let him know your love" href="{{route('reg.edit', $fin->id)}}"> <img height="100" width="150" src="{{ asset('images/lovebutton.jpg')}}"></a>{{$fin->likes}}
-                                    @else
-                                        <a title="Let her know your love" href="{{route('reg.edit', $fin->id)}}"> <img height="100" width="150" src="{{ asset('images/lovebutton.jpg')}}"></a>{{$fin->likes}}
-                                @endif
+                                    <a title="Let's like" href="{{route('userHome.edit', $fin->id)}}"> <img height="100" width="150" src="{{ asset('images/lovebutton.jpg')}}"></a>{{$lk->like}}
+
+                                @endforeach
                                 <br>
                                 <a title="Go Back to main page" href="{{route('userHome.index')}}"> <img height="150" width="150" src="{{ asset('images/back.png')}}"></a>
                                 <br>

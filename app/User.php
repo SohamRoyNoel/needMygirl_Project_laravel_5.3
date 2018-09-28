@@ -47,6 +47,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Usergallery');
     }
 
+    public function like(){
+        return $this->hasMany('App\Like');
+    }
+
     //middleware login
     public static function isLogin(){
         if (session('id')){

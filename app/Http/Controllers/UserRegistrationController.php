@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Requests\RegistrationRequest;
+use App\Like;
 use App\Photo;
 use App\User;
 use Illuminate\Http\Request;
@@ -33,6 +34,7 @@ class UserRegistrationController extends Controller
         // User::create($request->all());
 
         $input = $request->all();
+        $findEM = $request['email'];
 
         if ($file = $request->file('photo_id')){
             $name = time() . $file->getClientOriginalName();
@@ -42,6 +44,17 @@ class UserRegistrationController extends Controller
         }
 
         User::create($input);
+
+
+        $findMYuser = User::where('email','=',$findEM)->get();
+        foreach ($findMYuser as $f){
+            $lk['user_id'] = $f['id'];
+        }
+
+        $lk['like'] = 1;
+        $lk['like_from'] = 8;
+        Like::create($lk);
+
         return redirect('/');
     }
 
